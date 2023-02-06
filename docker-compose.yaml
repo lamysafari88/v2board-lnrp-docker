@@ -5,7 +5,7 @@ networks:
 
 services:
   www:
-    image: stpog/v2board-docker
+    image: moefaq/v2board-lnrp-docker
     volumes:
       - "<v2board-docker-data>/www:/www"
       - "<v2board-docker-data>/wwwlogs:/wwwlogs"
@@ -28,6 +28,7 @@ services:
     image: mysql:5.7.29
     volumes:
       - "<v2board-docker-data>/mysql:/var/lib/mysql"
+      - "<v2board-docker-data>/config/mysql.cnf:/etc/mysql/conf.d/docker.cnf"
       - "/etc/localtime:/etc/localtime"
     restart: always
     environment:
